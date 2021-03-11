@@ -5,3 +5,6 @@ python3 -m venv env
 set +u
 source env/bin/activate
 set -u
+
+pip install -r requirements.txt
+pip install -e .
