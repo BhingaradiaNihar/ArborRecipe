@@ -1,5 +1,5 @@
 """
-Insta485 python package configuration.
+ArborRecipe python package configuration.
 
 Andrew DeOrio <awdeorio@umich.edu>
 """
