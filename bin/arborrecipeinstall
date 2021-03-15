@@ -2,7 +2,7 @@ set -Eeuo pipefail
 set -x
 
 python3 -m venv env
-set +u
+set -u
 source env/bin/activate
 set -u
 
