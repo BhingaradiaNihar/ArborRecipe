@@ -1,4 +1,4 @@
-"""Insta485 development configuration."""
+"""ArborRecipe development configuration."""
 import pathlib
 
 # Root of this application, useful if it doesn't occupy an entire domain
