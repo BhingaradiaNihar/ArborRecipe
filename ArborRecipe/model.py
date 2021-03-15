@@ -5,14 +5,14 @@ import hashlib
 import pathlib
 import os
 import flask
-import insta485
+import ArborRecipe
 
 
 def delete_file(filename):
     """Delete file from uploads folder."""
     if os.path.exists(os.path.join(
-            insta485.app.config['UPLOAD_FOLDER'], filename)):
-        os.remove(os.path.join(insta485.app.config['UPLOAD_FOLDER'], filename))
+            ArborRecipe.app.config['UPLOAD_FOLDER'], filename)):
+        os.remove(os.path.join(ArborRecipe.app.config['UPLOAD_FOLDER'], filename))
 
 
 def upload_file(fileobj):
@@ -28,7 +28,7 @@ def upload_file(fileobj):
     )
 
     # Save to disk
-    path = insta485.app.config["UPLOAD_FOLDER"] / uuid_basename
+    path = ArborRecipe.app.config["UPLOAD_FOLDER"] / uuid_basename
     fileobj.save(path)
     return uuid_basename
 
@@ -50,7 +50,7 @@ def get_salted_hash(password, used_salt=None):
 
 def get_salt(username):
     """Return Salt for username."""
-    connection = insta485.model.get_db()
+    connection = ArborRecipe.model.get_db()
 
     cur = connection.execute(
         "SELECT password FROM users WHERE username = '{0}' ".format(username)
@@ -74,7 +74,7 @@ def get_db():
     https://flask.palletsprojects.com/en/1.0.x/appcontext/#storing-data
     """
     if 'sqlite_db' not in flask.g:
-        db_filename = insta485.app.config['DATABASE_FILENAME']
+        db_filename = ArborRecipe.app.config['DATABASE_FILENAME']
         flask.g.sqlite_db = sqlite3.connect(str(db_filename))
         flask.g.sqlite_db.row_factory = dict_factory
 
@@ -85,7 +85,7 @@ def get_db():
     return flask.g.sqlite_db
 
 
-@insta485.app.teardown_appcontext
+@ArborRecipe.app.teardown_appcontext
 def close_db(error):
     """Close the database at the end of a request.
 

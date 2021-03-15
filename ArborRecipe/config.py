@@ -11,7 +11,7 @@ SESSION_COOKIE_NAME = 'login'
 # File Upload to var/uploads/
 ARBORRECIPE_ROOT = pathlib.Path(__file__).resolve().parent.parent
 UPLOAD_FOLDER = ARBORRECIPE_ROOT / 'var' / 'uploads'
-IMAGES_FOLDER = ARBORRECIPE_ROOT / 'insta485' / 'static' / 'images'
+IMAGES_FOLDER = ARBORRECIPE_ROOT / 'ArborRecipe' / 'static' / 'images'
 CSS_FOLDER = ARBORRECIPE_ROOT / 'ArborRecipe' / 'static' / 'css'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 MAX_CONTENT_LENGTH = 16 * 1024 * 1024
