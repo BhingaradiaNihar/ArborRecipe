@@ -25,21 +25,18 @@ class App extends React.Component {
       const { ingredients }  = this.state
       console.log(ingredients);
       let url = window.location.href;       
-      let urlapi = url + `i?ingredients=${encodeURIComponent(ingredients.join(','))}`;
+      //i?ingredients=${encodeURIComponent(ingredients.join(','))}
+      let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}`;
       console.log(urlapi)
 
-    let recipelist = None;
 
-    fetch(url, { credentials: 'same-origin' })
+    fetch(urlapi, { credentials: 'same-origin' })
       .then((response) => {
         if (!response.ok) throw Error(response.statusText);
         return response.json();
       })
       .then((data) => {
-        this.setState({
-          results: results.concat(data.results),
-          nextUrl: data.next,
-        });
+        console.log(data)
       })
       .catch((error) => console.log(error));
 
