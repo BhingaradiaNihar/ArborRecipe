@@ -37,9 +37,9 @@ class App extends React.Component {
       })
       .then((data) => {
         this.setState({
-          recipelist: data
+          recipelist: data["recipe"]
         })
-        console.log(data);
+        console.log(this.state.recipelist);
       })
       .catch((error) => console.log(error));
     }
@@ -47,13 +47,19 @@ class App extends React.Component {
   render() {
     // This line automatically assigns this.state.numLikes to the const variable numLikes
     // Render number of likes
+    const { recipelist } = this.state;
     return (
     //call addbar
+
 
         <div>
             <Addbar parentCallback = {this.handleCallback} />
                 <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
-
+            
+            {recipelist.map(recipe => (
+              <li>{recipe["recipe_name"]}</li>
+            ))}
+              
         </div>
     );
   }
