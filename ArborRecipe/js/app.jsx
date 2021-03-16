@@ -10,12 +10,13 @@ class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data: null
+            data: "hi"
         }
     }
 
     handleCallback = (childData) =>{
         this.setState({data: childData})
+        console.log(this.state.data)
     }
 
 
@@ -24,14 +25,9 @@ class App extends React.Component {
     // Render number of likes
     return (
     //call addbar
-        <div>
-            <p>
-                Hello world
-            </p>
-        </div>,
 
-        <div>  <Addbar       parentCallback = {this.handleCallback} />  
-            {data}
+        <div>
+            <Addbar parentCallback = {this.handleCallback} />  
         </div>
 
     );
