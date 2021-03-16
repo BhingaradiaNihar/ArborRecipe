@@ -5,6 +5,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       list: []
+
     };
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
@@ -57,10 +58,8 @@ class App extends React.Component {
     return (
       <div className="content">
         <div className="container">
-          <section className="section">
-            <List items={this.state.list} delete={this.removeItem} />
-          </section>
-          <hr />
+          
+
           <section className="section">
             <form className="form" id="addItemForm">
               <input
@@ -74,6 +73,11 @@ class App extends React.Component {
               </button>
             </form>
           </section>
+
+          <section className="section">
+            <List items={this.state.list} delete={this.removeItem} />
+          </section>
+
         </div>
       </div>
     );
@@ -134,10 +138,11 @@ class List extends React.Component {
     });
   }
   
-  render() {
+  render()
+   {
     return (
+
       <div>
-        <input type="text" className="input" onChange={this.handleChange} placeholder="Search..." />
           <ul>
             {this.state.filtered.map(item => (
               <li key={item}>
@@ -145,7 +150,7 @@ class List extends React.Component {
                 <span
                   className="delete"
                   onClick={() => this.props.delete(item)}
-                  />
+                  />    
               </li>
             ))}
           </ul>
