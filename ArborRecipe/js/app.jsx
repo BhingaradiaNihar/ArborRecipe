@@ -36,12 +36,12 @@ class App extends React.Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data)
+        this.setState({
+          recipelist: data
+        })
+        console.log(data);
       })
       .catch((error) => console.log(error));
-
-
-
     }
 
   render() {
@@ -52,8 +52,6 @@ class App extends React.Component {
 
         <div>
             <Addbar parentCallback = {this.handleCallback} />
-             
-
                 <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
 
         </div>
