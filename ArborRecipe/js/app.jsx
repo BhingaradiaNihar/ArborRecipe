@@ -56,14 +56,21 @@ class App extends React.Component {
             <Addbar parentCallback = {this.handleCallback} />
                 <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
             
-            {recipelist.map(recipe => (
-              <li>{recipe["recipe_name"]}</li>
+            {recipelist.map((recipe, index) => (
+              <div key ={index.toString()} >        
+                <p key = "rname">{recipe["recipe_name"]}</p>
+                <p>Cooking time: {recipe["cooking_time"]}</p>
+                <p>Instruction: {recipe["instruction"]}</p>
+              </div>
             ))}
               
         </div>
     );
   }
 }
-
+//                <p>Instruction: {recipe["instruction"]}</p>
+//           {recipelist["instruction"].split(";").map(instr =>(
+//  <li>{instr}</li>
+//  ))}
 
 export default App;
