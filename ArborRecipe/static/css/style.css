@@ -69,32 +69,6 @@ hr {
 }
 
 
-
- .post_image{
-  width: 300px;
-  height: 300px;
-
-}
-.followers_grid{
-  border: 1px solid grey;
-  width: 320px;
-  padding: 5px;
-  border-radius: 25px;   
-
-}
-
-.followers_grid_data{
-   color: #001a33;
-  text-align: left;
-  padding: 5px 5px;
-  text-decoration: none;
-  font-size: 15px;
-  margin: auto;
-
-
-}
-
-
 .bg {
   background-image: url('/images/background.jpg');
   height: 100%;
@@ -105,7 +79,24 @@ hr {
 }
 
 
+.button a{
+  background-color: #4ca0af; 
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
 
+.button a:hover{
+  background-color: #387985; 
+}
+
+body {
+  font: normal Georgia, serif;
+}
 
 
 
