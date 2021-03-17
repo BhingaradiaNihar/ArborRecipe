@@ -85,7 +85,7 @@ hr {
 
 body {
   font: normal Georgia, serif;
-  
+
   background-image: url('/images/background.jpg');
 
   background-position: center;
@@ -101,4 +101,9 @@ body {
   width: 50%;
 }
 
-
+#logo1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
