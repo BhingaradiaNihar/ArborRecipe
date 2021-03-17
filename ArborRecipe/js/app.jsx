@@ -59,8 +59,8 @@ class App extends React.Component {
             {recipelist.map((recipe, index) => (
               <div key ={index.toString()} >        
                 <p key = "rname">{recipe["recipe_name"]}</p>
-                <p>Cooking time: {(recipe["cooking_time"]).replace(';','\n')}</p>
-                <p>Instruction: {recipe["instruction"]}</p>
+                <p>Cooking time: {recipe["cooking_time"]}</p>
+                <p>Instruction: {(recipe["instruction"]).replace(';','\n')}</p>
               </div>
             ))}
               
