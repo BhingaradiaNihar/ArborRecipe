@@ -11,7 +11,7 @@ VALUES('Bread',"{'1'}"),('Avacado',"{'1'}"),('Black beans',"{'2'}"),('Salsa',"{'
 ('Flour', "{'8'}"),('Sugar', "{'8'}"),('Canola oil', "{'8'}"),('Vanilla extract', "{'8'}"),('Chocolate chips', "{'8'}"),
 ('Ciabatta bread', "{'9'}"),('Pepper flakes', "{'9','10'}"),('Broccoli', "{'10'}"),('Butter', "{'10'}");
 
-INSERT INTO recipe(recipe_id,recipe_name,ingredients,instruction,prep_time, cooking_time)
+INSERT INTO recipe_table(recipe_id,recipe_name,ingredients,instruction,prep_time, cooking_time)
 VALUES
 (1,'Avacado Toast','1 Slice of bread;1 Avocado /n','1) Toast the bread;2) Cut the Avacado;3) spread the Avacado on the Toast', 5,0),
 (2, 'Bean Burrito','1 tortilla;1 cup of black beans;1/4 cup of salsa', '1) Take a tortilla, 2) Spread Salsa on the tortilla. 3) Add Beans. 4) Add Cheese 5) Microvave it for 2 mins', 5,2),

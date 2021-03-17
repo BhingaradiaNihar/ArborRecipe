@@ -25,44 +25,52 @@ class App extends React.Component {
       const { ingredients }  = this.state
       console.log(ingredients);
       let url = window.location.href;       
-      let urlapi = url + `i?ingredients=${encodeURIComponent(ingredients.join(','))}`;
+      //i?ingredients=${encodeURIComponent(ingredients.join(','))}
+      let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}`;
       console.log(urlapi)
 
-    let recipelist = None;
 
-    fetch(url, { credentials: 'same-origin' })
+    fetch(urlapi, { credentials: 'same-origin' })
       .then((response) => {
         if (!response.ok) throw Error(response.statusText);
         return response.json();
       })
       .then((data) => {
         this.setState({
-          results: results.concat(data.results),
-          nextUrl: data.next,
-        });
+          recipelist: data["recipe"]
+        })
+        console.log(this.state.recipelist);
       })
       .catch((error) => console.log(error));
-
-
-
     }
 
   render() {
     // This line automatically assigns this.state.numLikes to the const variable numLikes
     // Render number of likes
+    const { recipelist } = this.state;
     return (
     //call addbar
 
+
         <div>
             <Addbar parentCallback = {this.handleCallback} />
-             
-
                 <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
-
+            
+            {recipelist.map((recipe, index) => (
+              <div key ={index.toString()} >        
+                <p key = "rname">{recipe["recipe_name"]}</p>
+                <p>Cooking time: {recipe["cooking_time"]}</p>
+                <p>Instruction: {recipe["instruction"]}</p>
+              </div>
+            ))}
+              
         </div>
     );
   }
 }
-
+//                <p>Instruction: {recipe["instruction"]}</p>
+//           {recipelist["instruction"].split(";").map(instr =>(
+//  <li>{instr}</li>
+//  ))}
 
 export default App;
