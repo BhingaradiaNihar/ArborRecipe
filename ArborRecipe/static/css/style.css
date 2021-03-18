@@ -105,3 +105,10 @@ body {
   margin-right: auto;
   width: 15%;
 }
+
+#recipeName { 
+  border-style: solid;
+  border-color:#001a33;
+  font-weight: bold;
+}
+
