@@ -86,7 +86,7 @@ hr {
 body {
   font: normal Georgia, serif;
 
-  background-image: url('../static/images/background.jpg');
+  background-image: url('../images/background.jpg');
 
   background-position: center;
   background-repeat: repeat;
