@@ -29,6 +29,7 @@ class Addbar extends React.Component {
       this.setState({
         list: list
       });
+      this.props.parentCallback(newItem.value);
       // Finally, we need to reset the form
       newItem.classList.remove("is-danger");
       form.reset();
@@ -36,7 +37,7 @@ class Addbar extends React.Component {
       // If the input doesn't have a value, make the border red since it's required
       newItem.classList.add("is-danger");
     }
-    this.props.parentCallback(this.state.list);
+
   }
 
   removeItem(item) {
@@ -70,7 +71,7 @@ class Addbar extends React.Component {
                 id="addInput"
                 placeholder="Add Ingredients"
               />
-              <button className="button is-info" onClick={this.addItem}>
+              <button className="button-is-info" onClick={this.addItem}>
                 Add Item
               </button>
             </form>

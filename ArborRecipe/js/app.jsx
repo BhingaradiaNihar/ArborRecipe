@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Addbar from './addbar';
-
 class App extends React.Component {
   /* Display number of likes and like/unlike button for one post
    * Reference on forms https://facebook.github.io/react/docs/forms.html
@@ -11,24 +10,35 @@ class App extends React.Component {
         super(props);
         this.state = {
           ingredients: [],
+          restrictions: [],
           recipelist: []
         }
         this.getRecipe = this.getRecipe.bind(this);
     }
 
-    handleCallback = (childData) =>{
-        this.setState({ingredients: childData})
-        console.log(this.state.ingredients)
+    handleCallback1 = (childData) =>{
+
+      const {ingredients} = this.state
+      ingredients.push(childData.toString());
+      this.setState({ingredients: ingredients });
+      console.log("1",this.state.ingredients)
+    }
+
+    handleCallback2 = (childData) =>{
+      const {restrictions} = this.state
+      restrictions.push(childData.toString());
+      this.setState({restrictions: restrictions})
+      console.log("2",this.state.restrictions)
     }
 
     getRecipe(){
       const { ingredients }  = this.state
-      console.log(ingredients);
+      const {restrictions} = this.state
       let url = window.location.href;       
       //i?ingredients=${encodeURIComponent(ingredients.join(','))}
-      let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}`;
-      console.log(urlapi)
+      let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}&restrictions=${encodeURIComponent(restrictions.join(','))}`;
 
+      console.log("urlapi = ", urlapi)
 
     fetch(urlapi, { credentials: 'same-origin' })
       .then((response) => {
@@ -53,21 +63,22 @@ class App extends React.Component {
 
 
         <div>
-            <Addbar parentCallback = {this.handleCallback} />
-                <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
+            <Addbar parentCallback = {this.handleCallback1} />
+            
+                <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
                 <br></br>
                 <br></br>
                 <br></br>
             {recipelist.map((recipe, index) => (
               <div key ={index.toString()} className = "recipe">
-              <b>Recipe {index}</b>
+              <b>Recipe: {index}</b>
                 <p id="recipeName"classkey = "rname">{recipe["recipe_name"]}</p>
                 <p id="prepTime">Preparation time: {recipe["prep_time"]} minutes</p>
                 <p id="cookingTime">Cooking time: {recipe["cooking_time"]} minutes</p>
 
                 {(recipe["instruction"]).split(';').map((instr, ind)=>(
 
-                  <li key = {index.toString()}>{instr}</li>
+                  <li key = {index.toString()} >{instr}</li>
 
                 ))}
                 <br></br>
