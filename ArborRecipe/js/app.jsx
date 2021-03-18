@@ -59,11 +59,11 @@ class App extends React.Component {
                 <br></br>
                 <br></br>
             {recipelist.map((recipe, index) => (
-              <div key ={index.toString()} className = "recipe">        
+              <div key ={index.toString()} className = "recipe">
               <b>Recipe{index}</b>
                 <p id="recipeName"classkey = "rname">{recipe["recipe_name"]}</p>
-                <p id="prepTime">Preptime</p>
-                <p id="cookingTime">Cooking time: {recipe["cooking_time"]}</p>
+                <p id="prepTime">Preparation time: {recipe["prep_time"]} minutes</p>
+                <p id="cookingTime">Cooking time: {recipe["cooking_time"]} minutes</p>
 
                 {(recipe["instruction"]).split(';').map((instr, ind)=>(
 

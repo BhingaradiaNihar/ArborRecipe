@@ -20,7 +20,7 @@ def get_recipe():
     recipes_text = {}
 
     restr = request.args.get('restr')
-    
+
     ingredients = request.args.get('ingredients').split(",")
     print(ingredients)
     connection = ArborRecipe.model.get_db()
@@ -52,7 +52,8 @@ def get_recipe():
             "recipe_id"  : cur2["recipe_id" ],
             "recipe_name" :  cur2["recipe_name"],
             "instruction" :  cur2["instruction"] ,
-            "cooking_time" :  cur2["cooking_time"]
+            "cooking_time" :  cur2["cooking_time"],
+            "prep_time" : cur2["prep_time"]
         }
 
         res_list.append(temp)
