@@ -60,7 +60,7 @@ class App extends React.Component {
               <div key ={index.toString()} >        
                 <p key = "rname">{recipe["recipe_name"]}</p>
                 <p>Cooking time: {recipe["cooking_time"]}</p>
-                <p>Instruction: {recipe["instruction"]}</p>
+                <p>Instructions: {(recipe["instruction"]).replace(';','\n')}</p>
               </div>
             ))}
               
