@@ -1,3 +1,8 @@
+@import url(//db.onlinewebfonts.com/c/a79f5235c6ec712afe64037d3cd0efe7?family=CopperPot);
+
+@font-face {font-family: "CopperPot"; src: url("//db.onlinewebfonts.com/t/a79f5235c6ec712afe64037d3cd0efe7.eot"); src: url("//db.onlinewebfonts.com/t/a79f5235c6ec712afe64037d3cd0efe7.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/a79f5235c6ec712afe64037d3cd0efe7.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/a79f5235c6ec712afe64037d3cd0efe7.woff") format("woff"), url("//db.onlinewebfonts.com/t/a79f5235c6ec712afe64037d3cd0efe7.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/a79f5235c6ec712afe64037d3cd0efe7.svg#CopperPot") format("svg"); }
+
+
 .post {
   border: 1px solid grey;
   width: 320px;
@@ -88,7 +93,7 @@ hr {
 }
 
 body {
-  font: normal Georgia, serif;
+  font-family: CopperPot Bold !important;
 }
 
 
@@ -112,3 +117,71 @@ body {
   font-weight: bold;
 }
 
+
+.recipe { 
+  border-style: solid;
+  border-width: thin;
+  border-color:#bdd2e6;
+  font-weight: normal;
+}
+
+#recipeName {
+  font-weight: bold;
+}
+
+.button-is-info {
+  display: inline;
+  align-self: right;
+  margin-right: 180px;
+  background-color: rgb(9, 240, 9);
+  font-size: 24px !important;
+  border-radius: 12px;
+
+}
+
+.button-is-info:hover {
+  background-color: green;
+}
+
+.content {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+
+.submit-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;  
+  background-color: rgb(9, 240, 9);
+  border-radius: 12px;
+}
+
+.submit-button:hover {
+  background-color: green;
+}
+
+#addInput {
+  transition: width 0.8s;
+  transition: height 0.8s;
+  align-self: center;
+  font-size: 24px !important;
+  height: 24px;
+  background-color: rgb(187, 252, 178);
+}
+
+
+.section {
+  align-content: center;
+  font-size: 24px;
+}
+
+/*
+#addInput:focus {
+  transition: width 0.8s ease-in-out;
+  transition: height 0.8s ease-in-out;
+  width:60%;
+  height: 30px;
+}*/
