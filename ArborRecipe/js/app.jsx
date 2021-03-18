@@ -52,15 +52,27 @@ class App extends React.Component {
     //call addbar
 
 
-        <div class="recipe">
+        <div>
             <Addbar parentCallback = {this.handleCallback} />
                 <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
-            
+                <br></br>
+                <br></br>
+                <br></br>
             {recipelist.map((recipe, index) => (
-              <div key ={index.toString()} >        
+              <div key ={index.toString()} className = "recipe">        
+              <b>Recipe{index}</b>
                 <p id="recipeName"classkey = "rname">{recipe["recipe_name"]}</p>
+                <p id="prepTime">Preptime</p>
                 <p id="cookingTime">Cooking time: {recipe["cooking_time"]}</p>
-                <p id="prepTime">Instructions: {(recipe["instruction"]).replace(';','\n')}</p>
+
+                {(recipe["instruction"]).split(';').map((instr, ind)=>(
+
+                  <li key = {index.toString()}>{instr}</li>
+
+                ))}
+                <br></br>
+                <br></br>
+                <br></br>
               </div>
             ))}
               
