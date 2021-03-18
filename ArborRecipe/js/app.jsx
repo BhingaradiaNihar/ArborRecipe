@@ -52,7 +52,7 @@ class App extends React.Component {
     //call addbar
 
 
-        <div>
+        <div id="recipe">
             <Addbar parentCallback = {this.handleCallback} />
                 <button type = "button" value ="Submit" onClick = {this.getRecipe}>Submit</button>
             
