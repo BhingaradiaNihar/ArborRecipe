@@ -64,7 +64,7 @@ class App extends React.Component {
 
         <div>
             <Addbar parentCallback = {this.handleCallback1} />
-            
+
                 <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
                 <br></br>
                 <br></br>
@@ -76,6 +76,16 @@ class App extends React.Component {
                 <p id="prepTime">Preparation time: {recipe["prep_time"]} minutes</p>
                 <p id="cookingTime">Cooking time: {recipe["cooking_time"]} minutes</p>
 
+
+                <p>Ingredients: </p>
+                {(recipe["ingredients"]).split(';').map((ingr, ind)=>(
+
+                   <li key = {index.toString()} >{ingr}</li>
+
+                  ))}
+
+
+                <p>Instruction:  </p>
                 {(recipe["instruction"]).split(';').map((instr, ind)=>(
 
                   <li key = {index.toString()} >{instr}</li>

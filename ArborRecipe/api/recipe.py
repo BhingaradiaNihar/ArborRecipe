@@ -51,6 +51,7 @@ def get_recipe():
         temp = {
             "recipe_id"  : cur2["recipe_id" ],
             "recipe_name" :  cur2["recipe_name"],
+            "ingredients" : cur2["ingredients"],
             "instruction" :  cur2["instruction"] ,
             "cooking_time" :  cur2["cooking_time"],
             "prep_time" : cur2["prep_time"]

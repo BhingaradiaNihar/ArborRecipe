@@ -113,7 +113,7 @@ body {
 
 #recipeName { 
   border-style: solid;
-  border-color:#001a33;
+  border-color:#2c3c4b;
   font-weight: bold;
 }
 
@@ -121,7 +121,7 @@ body {
 .recipe { 
   border-style: solid;
   border-width: thin;
-  border-color:#bdd2e6;
+  border-color:#515b64;
   font-weight: normal;
 }
 
@@ -132,15 +132,14 @@ body {
 .button-is-info {
   display: inline;
   align-self: right;
-  margin-right: 180px;
-  background-color: rgb(9, 240, 9);
+  background-color: rgb(178, 233, 246);
   font-size: 24px !important;
   border-radius: 12px;
 
 }
 
 .button-is-info:hover {
-  background-color: green;
+  background-color: rgb(178, 233, 246);;
 }
 
 .content {
@@ -155,12 +154,12 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: 24px;  
-  background-color: rgb(9, 240, 9);
+  background-color: rgb(178, 233, 246);
   border-radius: 12px;
 }
 
 .submit-button:hover {
-  background-color: green;
+  background-color: rgb(178, 233, 246);
 }
 
 #addInput {
@@ -169,12 +168,18 @@ body {
   align-self: center;
   font-size: 24px !important;
   height: 24px;
-  background-color: rgb(187, 252, 178);
+  background-color: rgb(199, 238, 246);
 }
 
 
 .section {
   align-content: center;
+  font-size: 24px;
+}
+
+.container {
+  align-content: center;
+  text-align: center;
   font-size: 24px;
 }
 
@@ -185,3 +190,10 @@ body {
   width:60%;
   height: 30px;
 }*/
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+}
