@@ -102,11 +102,6 @@ class List extends React.Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState({
-      filtered: nextProps.items
-    });
-  }
   
   handleChange(e) {
     // Variable to hold the original version of the list
@@ -153,7 +148,7 @@ class List extends React.Component {
                 <span
                   className="delete"
                   onClick={() => this.props.delete(item)}
-                  />    
+                  >X</span>    
               </li>
             ))}
           </ul>
@@ -163,4 +158,3 @@ class List extends React.Component {
 }
 
 export default Addbar;
-//ReactDOM.render(<App />, document.getElementById("app"));
