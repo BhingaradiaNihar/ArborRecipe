@@ -42,6 +42,7 @@ class Addbar extends React.Component {
 
   removeItem(item) {
     // Put our list into an array
+    console.log("deleting", item);
     const list = this.state.list.slice();
     // Check to see if item passed in matches item in array
     list.some((el, i) => {
@@ -144,11 +145,10 @@ class List extends React.Component {
           <ul>
             {this.state.filtered.map(item => (
               <li key={item}>
-                {item} &nbsp;
-                <span
-                  className="delete"
+                
+                <div className ="box"
                   onClick={() => this.props.delete(item)}
-                  >X</span>    
+                  >{item} &nbsp;</div>    
               </li>
             ))}
           </ul>
