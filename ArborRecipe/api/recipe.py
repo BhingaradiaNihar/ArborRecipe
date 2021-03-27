@@ -26,7 +26,7 @@ def get_recipe():
     connection = ArborRecipe.model.get_db()
     for ingredient in ingredients:
         cur = connection.execute(
-            "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient]
+            "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient.lower()]
         ).fetchone()
         #catch if ingrridients not found
         print(cur)
