@@ -25,12 +25,12 @@ class Addbar extends React.Component {
     if (newItem.value != "") {
       // Add the new item to the end of our list array
       list.push(newItem.value);
+      this.props.parentCallback(list);
       // Then we use that to set the state for list
       this.setState({
         list: list
       });
-      let updated = this.state.list
-      this.props.parentCallback(updated);
+
       // Finally, we need to reset the form
       newItem.classList.remove("is-danger");
       form.reset();
@@ -53,10 +53,12 @@ class Addbar extends React.Component {
         return true;
       }
     });
+    this.props.parentCallback(list);
     // Set state to list
     this.setState({
       list: list
     });
+    
   }
 
   render() {

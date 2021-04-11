@@ -17,11 +17,7 @@ class App extends React.Component {
     }
 
     handleCallback1 = (childData) =>{
-
-      //const {ingredients} = this.state
-      //ingredients.push(childData.toString());
       this.setState({ingredients: childData });
-      console.log("1",this.state.ingredients)
     }
 
     handleCallback2 = (childData) =>{
