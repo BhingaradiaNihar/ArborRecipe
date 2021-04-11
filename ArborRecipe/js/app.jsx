@@ -65,9 +65,10 @@ class App extends React.Component {
 
 
         <div>
+          <div className="bar_container">
             <Ingredients_Bar id = "ingredients_bar" key = "1" parentCallback = {this.handleCallback1} />
             <Restriction_Bar id = "restriction_bar" key = "2" parentCallback = {this.handleCallback2} />
-
+          </div>
                 <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
                 <br></br>
                 <br></br>

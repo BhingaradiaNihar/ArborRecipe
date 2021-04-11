@@ -58,11 +58,11 @@ class Ingredients_Bar extends React.Component {
 
   render() {
     return (
-      <div className="content">
+
         <div className="container">
           
 
-          <section className="section">
+          <section className="section_ingr">
             <form className="form" id="addItemForm">
               <input
                 type="text"
@@ -76,12 +76,11 @@ class Ingredients_Bar extends React.Component {
             </form>
           </section>
 
-          <section className="section">
+          <section className="section_ingr">
             <List items={this.state.list} delete={this.removeItem} />
           </section>
 
         </div>
-      </div>
     );
   }
 }

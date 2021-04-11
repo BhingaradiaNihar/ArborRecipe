@@ -58,11 +58,11 @@ class Restriction_bar extends React.Component {
 
   render() {
     return (
-      <div className="content">
+
         <div className="container">
           
 
-          <section className="section">
+          <section className="section_restr">
             <form className="form" id="addItemForm_restr">
               <input
                 type="text"
@@ -76,12 +76,12 @@ class Restriction_bar extends React.Component {
             </form>
           </section>
 
-          <section className="section">
+          <section className="section_restr">
             <List items={this.state.list} delete={this.removeItem} />
           </section>
 
         </div>
-      </div>
+
     );
   }
 }
