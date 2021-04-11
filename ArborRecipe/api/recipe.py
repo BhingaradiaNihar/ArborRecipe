@@ -19,14 +19,14 @@ def get_recipe():
     recipes_id = set()
     recipes_text = {}
 
-    restr = request.args.get('restr')
-
+    restr = request.args.get('restr')   
+    print(request.args.get('ingredients'))
     ingredients = request.args.get('ingredients').split(",")
     print(ingredients)
     connection = ArborRecipe.model.get_db()
     for ingredient in ingredients:
         cur = connection.execute(
-            "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient]
+            "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient.lower()]
         ).fetchone()
         #catch if ingrridients not found
         print(cur)

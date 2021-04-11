@@ -9,7 +9,7 @@ VALUES('Bread',"{'1'}"),('Avacado',"{'1'}"),('Black beans',"{'2'}"),('Salsa',"{'
 ('Quinoa', "{'7'}"),('Cherry tomatoes', "{'7'}"),('Cucumber', "{'7'}"),('Orange pepper', "{'7'}"),
 ('Parsley', "{'7'}"),('Mint', "{'7'}"),('Lemon', "{'7'}"),('Pepper', "{'7','9','10'}"),
 ('Flour', "{'8'}"),('Sugar', "{'8'}"),('Canola oil', "{'8'}"),('Vanilla extract', "{'8'}"),('Chocolate chips', "{'8'}"),
-('Ciabatta bread', "{'9'}"),('Pepper flakes', "{'9','10'}"),('Broccoli', "{'10'}"),('Butter', "{'10'}")\n
+('Ciabatta bread', "{'9'}"),('Pepper flakes', "{'9','10'}"),('Broccoli', "{'10'}"),('Butter', "{'10'}");
 
 INSERT INTO recipe(recipe_id,recipe_name,ingredients,instruction,prep_time,cooking_time)
 VALUES

@@ -29,7 +29,8 @@ class Addbar extends React.Component {
       this.setState({
         list: list
       });
-      this.props.parentCallback(newItem.value);
+      let updated = this.state.list
+      this.props.parentCallback(updated);
       // Finally, we need to reset the form
       newItem.classList.remove("is-danger");
       form.reset();
@@ -91,18 +92,10 @@ class Addbar extends React.Component {
 class List extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      filtered: []
-    };
+
     this.handleChange = this.handleChange.bind(this);
   }
   
-  componentDidMount() {
-    this.setState({
-      filtered: this.props.items
-    });
-  }
-
   
   handleChange(e) {
     // Variable to hold the original version of the list
@@ -143,7 +136,7 @@ class List extends React.Component {
 
       <div>
           <ul>
-            {this.state.filtered.map(item => (
+            {this.props.items.map(item => (
               <li key={item}>
                 
                 <div className ="box"

@@ -18,9 +18,9 @@ class App extends React.Component {
 
     handleCallback1 = (childData) =>{
 
-      const {ingredients} = this.state
-      ingredients.push(childData.toString());
-      this.setState({ingredients: ingredients });
+      //const {ingredients} = this.state
+      //ingredients.push(childData.toString());
+      this.setState({ingredients: childData });
       console.log("1",this.state.ingredients)
     }
 
@@ -34,24 +34,30 @@ class App extends React.Component {
     getRecipe(){
       const { ingredients }  = this.state
       const {restrictions} = this.state
-      let url = window.location.href;       
-      //i?ingredients=${encodeURIComponent(ingredients.join(','))}
-      let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}&restrictions=${encodeURIComponent(restrictions.join(','))}`;
+      let url = window.location.href;   
+      if(ingredients.length != 0){
+        let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}&restrictions=${encodeURIComponent(restrictions.join(','))}`;
 
-      console.log("urlapi = ", urlapi)
+        //i?ingredients=${encodeURIComponent(ingredients.join(','))}
 
-    fetch(urlapi, { credentials: 'same-origin' })
-      .then((response) => {
+        console.log("urlapi = ", urlapi)
+
+        fetch(urlapi, { credentials: 'same-origin' })
+        .then((response) => {
         if (!response.ok) throw Error(response.statusText);
-        return response.json();
-      })
-      .then((data) => {
+          return response.json();
+        })
+        .then((data) => {
         this.setState({
           recipelist: data["recipe"]
         })
         console.log(this.state.recipelist);
-      })
-      .catch((error) => console.log(error));
+        })
+        .catch((error) => console.log(error));
+    }
+      else{
+        console.log("No ingredients");
+      }
     }
 
   render() {
