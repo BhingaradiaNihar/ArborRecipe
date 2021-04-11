@@ -1,7 +1,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Addbar from './addbar';
+import Ingredients_Bar from './ingredients';
+import Restriction_Bar from './restriction';
+
 class App extends React.Component {
   /* Display number of likes and like/unlike button for one post
    * Reference on forms https://facebook.github.io/react/docs/forms.html
@@ -18,6 +20,11 @@ class App extends React.Component {
 
     handleCallback1 = (childData) =>{
       this.setState({ingredients: childData });
+    }
+
+    
+    handleCallback2 = (childData) =>{
+      this.setState({restrictions: childData });
     }
 
     getRecipe(){
@@ -58,7 +65,8 @@ class App extends React.Component {
 
 
         <div>
-            <Addbar parentCallback = {this.handleCallback1} />
+            <Ingredients_Bar id = "ingredients_bar" key = "1" parentCallback = {this.handleCallback1} />
+            <Restriction_Bar id = "restriction_bar" key = "2" parentCallback = {this.handleCallback2} />
 
                 <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
                 <br></br>

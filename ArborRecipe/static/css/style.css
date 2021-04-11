@@ -162,7 +162,7 @@ body {
   background-color: rgb(178, 233, 246);
 }
 
-#addInput {
+#addInput, #addInput_restr {
   transition: width 0.8s;
   transition: height 0.8s;
   align-self: center;

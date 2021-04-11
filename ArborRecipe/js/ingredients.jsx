@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Addbar extends React.Component {
+class Ingredients_Bar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -111,4 +111,4 @@ class List extends React.Component {
   }
 }
 
-export default Addbar;
+export default Ingredients_Bar;
