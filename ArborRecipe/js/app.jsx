@@ -20,13 +20,6 @@ class App extends React.Component {
       this.setState({ingredients: childData });
     }
 
-    handleCallback2 = (childData) =>{
-      const {restrictions} = this.state
-      restrictions.push(childData.toString());
-      this.setState({restrictions: restrictions})
-      console.log("2",this.state.restrictions)
-    }
-
     getRecipe(){
       const { ingredients }  = this.state
       const {restrictions} = this.state
@@ -103,9 +96,6 @@ class App extends React.Component {
     );
   }
 }
-//                <p>Instruction: {recipe["instruction"]}</p>
-//           {recipelist["instruction"].split(";").map(instr =>(
-//  <li>{instr}</li>
-//  ))}
+
 
 export default App;

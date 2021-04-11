@@ -198,9 +198,6 @@ li {
   list-style-type: none;
 }
 
-.box {
-  width: 200px;
-  height: 200px;
+.ingredient_box {
   border: 1px solid black;
-  float: left;
 }
