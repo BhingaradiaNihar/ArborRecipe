@@ -58,11 +58,9 @@ class Restriction_bar extends React.Component {
 
   render() {
     return (
-
-        <div className="container">
+       <div className = "container">
           
-
-          <section className="section_restr">
+          <div className="section_restr">
             <form className="form" id="addItemForm_restr">
               <input
                 type="text"
@@ -70,18 +68,15 @@ class Restriction_bar extends React.Component {
                 id="addInput_restr"
                 placeholder="Add Restriction"
               />
-              <button className="button-is-info" onClick={this.addItem}>
+              <button className="add_items_button" onClick={this.addItem}>
                 Add Restriction
               </button>
             </form>
-          </section>
+        
 
-          <section className="section_restr">
             <List items={this.state.list} delete={this.removeItem} />
-          </section>
-
-        </div>
-
+          </div>
+          </div>
     );
   }
 }
@@ -100,7 +95,7 @@ class List extends React.Component {
             {this.props.items.map(item => (
               <li key={item}>
                 
-                <div className = "ingredient_box"
+                <div className = "input_box"
                   onClick={() => this.props.delete(item)}
                   >{item} &nbsp;</div>    
               </li>

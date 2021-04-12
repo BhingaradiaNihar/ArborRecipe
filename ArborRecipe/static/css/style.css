@@ -11,7 +11,7 @@
 
 html
 {
-  background: url('../images/background.jpg') no-repeat center center fixed;
+  background: url('../images/BG.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -118,24 +118,29 @@ body {
 }
 
 
-.recipe { 
-  border-style: solid;
-  border-width: thin;
-  border-color:#515b64;
-  font-weight: normal;
-}
 
 #recipeName {
   font-weight: bold;
 }
 
-.button-is-info {
-  display: inline;
+.search_bars{
+  align-self: center;
+  height: auto;
+  overflow: auto;
+  text-align: center;
+}
+
+.add_items_button {
+ /* display: inline;
   align-self: right;
   background-color: rgb(178, 233, 246);
   font-size: 24px !important;
   border-radius: 12px;
-
+*/
+ border-radius: 25px;
+ background: #F9DEC8;
+ padding: 10px;
+ display: inline;
 }
 
 .button-is-info:hover {
@@ -149,26 +154,24 @@ body {
   padding-top: 10px;
 }
 
-.submit-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 30px;  
-  background-color: rgb(178, 233, 246);
-  border-radius: 12px;
-}
 
 .submit-button:hover {
   background-color: rgb(178, 233, 246);
 }
 
 #addInput, #addInput_restr {
-  transition: width 0.8s;
+/*  transition: width 0.8s;
   transition: height 0.8s;
   align-self: center;
   font-size: 24px !important;
   height: 24px;
   background-color: rgb(199, 238, 246);
+*/
+  border-radius: 25px;
+  background: #FB745E;
+  padding: 10px;
+  width: 250px;
+  height: 15px;
 }
 
 
@@ -182,24 +185,23 @@ body {
   font-size: 24px;
 }
 
-.bar_container{
+/*.bar_container{
   border: 3px solid #3ff;
   padding: 20px;
   align-self: center;
   height: auto;
   overflow: auto;
-}
+}*/
 
 .container {
   
   /*align-content: center;
   text-align: center;
   */
-  font-size: 24px;
   width: 45%;
   float: left;
-  padding: 20px;
-  border: 2px solid red;
+  align-content: right;
+
 }
 
 /*
@@ -217,6 +219,37 @@ li {
   list-style-type: none;
 }
 
-.ingredient_box {
-  border: 1px solid black;
+.input_box {
+  border-radius: 25px;
+  background: #FB745E;
+  padding-right: 10px;
+  padding-left: 10px;
+  display: block;
+  float: left; 
+
+}
+#submit-button, #reset-button {
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+  background-color: #F9DEC8;
+  border-radius: 25px;
+}
+
+#submit_reset_button{
+  text-align: center; 
+}
+
+
+#recipe { 
+    background-color: #F9DEC8;
+    max-width: 1000px;
+    text-align: center;
+    border: 1px solid lightgray;
+    margin-bottom: 45px;
+    border-radius: 25px;
+}
+
+#recipe_list{
+   margin: 0 auto;
 }

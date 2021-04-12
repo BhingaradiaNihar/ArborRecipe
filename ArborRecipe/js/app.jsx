@@ -66,42 +66,47 @@ class App extends React.Component {
 
 
         <div>
-          <div className="bar_container">
+          <div className="search_bars">
             <Ingredients_Bar id = "ingredients_bar" key = "1" parentCallback = {this.handleCallback1} />
             <Restriction_Bar id = "restriction_bar" key = "2" parentCallback = {this.handleCallback2} />
           </div>
-                <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
-                <button className = 'submit-button' type = "button" value ="Reset" onClick = {() => window.location.reload()}>Reset</button>
+          <div id = "submit_reset_button">
+            <button id = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
+            <button id = 'reset-button' type = "button" value ="Reset" onClick = {() => window.location.reload()}>Reset</button>
+          </div>
                 <br></br>
                 <br></br>
                 <br></br>
-            {recipelist.map((recipe, index) => (
-              <div key ={index.toString()} clas sName = "recipe">
-              <b>Recipe: {index + 1}</b>
-                <p id="recipeName"classkey = "rname">{recipe["recipe_name"]}</p>
-                <p id="prepTime">Preparation time: {recipe["prep_time"]} minutes</p>
-                <p id="cookingTime">Cooking time: {recipe["cooking_time"]} minutes</p>
+            <div id = "recipe_list">   
+              {recipelist.map((recipe, index) => (
+                <div  id = "recipe" key ={index.toString()} clas sName = "recipe">
+                <b>Recipe: {index + 1}</b>
+                  <p id="recipeName"classkey = "rname">{recipe["recipe_name"]}</p>
+                  <p id="prepTime">Preparation time: {recipe["prep_time"]} minutes</p>
+                  <p id="cookingTime">Cooking time: {recipe["cooking_time"]} minutes</p>
 
 
-                <p>Ingredients: </p>
-                {(recipe["ingredients"]).split(';').map((ingr, ind)=>(
+                  <p>Ingredients: </p>
+                  {(recipe["ingredients"]).split(';').map((ingr, ind)=>(
 
-                   <li key = {index.toString()} >{ingr}</li>
+                     <li key = {index.toString()} >{ingr}</li>
+
+                    ))}
+
+
+                  <p>Instruction:  </p>
+                  {(recipe["instruction"]).split(';').map((instr, ind)=>(
+
+                    <li key = {index.toString()} >{instr}</li>
 
                   ))}
 
-
-                <p>Instruction:  </p>
-                {(recipe["instruction"]).split(';').map((instr, ind)=>(
-
-                  <li key = {index.toString()} >{instr}</li>
-
-                ))}
                 <br></br>
                 <br></br>
                 <br></br>
               </div>
             ))}
+          </div>
               
         </div>
     );

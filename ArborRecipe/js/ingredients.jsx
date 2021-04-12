@@ -59,7 +59,7 @@ class Ingredients_Bar extends React.Component {
   render() {
     return (
 
-        <div className="container">
+        <div className = "container">
           
 
           <section className="section_ingr">
@@ -70,7 +70,7 @@ class Ingredients_Bar extends React.Component {
                 id="addInput"
                 placeholder="Add Ingredients"
               />
-              <button className="button-is-info" onClick={this.addItem}>
+              <button className="add_items_button" onClick={this.addItem}>
                 Add Item
               </button>
             </form>
@@ -99,7 +99,7 @@ class List extends React.Component {
             {this.props.items.map(item => (
               <li key={item}>
                 
-                <div className = "ingredient_box"
+                <div className = "input_box"
                   onClick={() => this.props.delete(item)}
                   >{item} &nbsp;</div>    
               </li>
