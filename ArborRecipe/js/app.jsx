@@ -22,6 +22,7 @@ class App extends React.Component {
       this.setState({ingredients: childData });
     }
 
+
     
     handleCallback2 = (childData) =>{
       this.setState({restrictions: childData });
@@ -70,6 +71,7 @@ class App extends React.Component {
             <Restriction_Bar id = "restriction_bar" key = "2" parentCallback = {this.handleCallback2} />
           </div>
                 <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
+                <button className = 'submit-button' type = "button" value ="Reset" onClick = {() => window.location.reload()}>Reset</button>
                 <br></br>
                 <br></br>
                 <br></br>
