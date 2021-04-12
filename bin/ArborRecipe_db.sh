@@ -26,7 +26,7 @@ case $1 in
     ;;
 
   "destroy")
-    #rm -rf var/ArborRecipe.sqlite3 var/uploads
+    rm -rf var
     ;;
 
   "reset")

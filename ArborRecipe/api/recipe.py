@@ -19,8 +19,8 @@ def get_recipe():
     recipes_id = set()
     recipes_text = {}
 
-    restr = request.args.get('restr')
-
+    restr = request.args.get('restr')   
+    print(request.args.get('ingredients'))
     ingredients = request.args.get('ingredients').split(",")
     print(ingredients)
     connection = ArborRecipe.model.get_db()

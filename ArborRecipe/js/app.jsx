@@ -1,7 +1,9 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import Addbar from './addbar';
+import Ingredients_Bar from './ingredients';
+import Restriction_Bar from './restriction';
+
 class App extends React.Component {
   /* Display number of likes and like/unlike button for one post
    * Reference on forms https://facebook.github.io/react/docs/forms.html
@@ -17,41 +19,42 @@ class App extends React.Component {
     }
 
     handleCallback1 = (childData) =>{
-
-      const {ingredients} = this.state
-      ingredients.push(childData.toString());
-      this.setState({ingredients: ingredients });
-      console.log("1",this.state.ingredients)
+      this.setState({ingredients: childData });
     }
 
+
+    
     handleCallback2 = (childData) =>{
-      const {restrictions} = this.state
-      restrictions.push(childData.toString());
-      this.setState({restrictions: restrictions})
-      console.log("2",this.state.restrictions)
+      this.setState({restrictions: childData });
     }
 
     getRecipe(){
       const { ingredients }  = this.state
       const {restrictions} = this.state
-      let url = window.location.href;       
-      //i?ingredients=${encodeURIComponent(ingredients.join(','))}
-      let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}&restrictions=${encodeURIComponent(restrictions.join(','))}`;
+      let url = window.location.href;   
+      if(ingredients.length != 0){
+        let urlapi = url + `api/i?ingredients=${encodeURIComponent(ingredients.join(','))}&restrictions=${encodeURIComponent(restrictions.join(','))}`;
 
-      console.log("urlapi = ", urlapi)
+        //i?ingredients=${encodeURIComponent(ingredients.join(','))}
 
-    fetch(urlapi, { credentials: 'same-origin' })
-      .then((response) => {
+        console.log("urlapi = ", urlapi)
+
+        fetch(urlapi, { credentials: 'same-origin' })
+        .then((response) => {
         if (!response.ok) throw Error(response.statusText);
-        return response.json();
-      })
-      .then((data) => {
+          return response.json();
+        })
+        .then((data) => {
         this.setState({
           recipelist: data["recipe"]
         })
         console.log(this.state.recipelist);
-      })
-      .catch((error) => console.log(error));
+        })
+        .catch((error) => console.log(error));
+    }
+      else{
+        console.log("No ingredients");
+      }
     }
 
   render() {
@@ -63,9 +66,12 @@ class App extends React.Component {
 
 
         <div>
-            <Addbar parentCallback = {this.handleCallback1} />
-
+          <div className="bar_container">
+            <Ingredients_Bar id = "ingredients_bar" key = "1" parentCallback = {this.handleCallback1} />
+            <Restriction_Bar id = "restriction_bar" key = "2" parentCallback = {this.handleCallback2} />
+          </div>
                 <button className = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
+                <button className = 'submit-button' type = "button" value ="Reset" onClick = {() => window.location.reload()}>Reset</button>
                 <br></br>
                 <br></br>
                 <br></br>
@@ -101,9 +107,6 @@ class App extends React.Component {
     );
   }
 }
-//                <p>Instruction: {recipe["instruction"]}</p>
-//           {recipelist["instruction"].split(";").map(instr =>(
-//  <li>{instr}</li>
-//  ))}
+
 
 export default App;

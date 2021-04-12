@@ -162,7 +162,7 @@ body {
   background-color: rgb(178, 233, 246);
 }
 
-#addInput {
+#addInput, #addInput_restr {
   transition: width 0.8s;
   transition: height 0.8s;
   align-self: center;
@@ -172,15 +172,34 @@ body {
 }
 
 
-.section {
+.section_restr {
   align-content: center;
   font-size: 24px;
 }
 
-.container {
-  align-content: center;
-  text-align: center;
+.section_ingr {
+  align-content: right;
   font-size: 24px;
+}
+
+.bar_container{
+  border: 3px solid #3ff;
+  padding: 20px;
+  align-self: center;
+  height: auto;
+  overflow: auto;
+}
+
+.container {
+  
+  /*align-content: center;
+  text-align: center;
+  */
+  font-size: 24px;
+  width: 45%;
+  float: left;
+  padding: 20px;
+  border: 2px solid red;
 }
 
 /*
@@ -196,4 +215,8 @@ ul {
 
 li {
   list-style-type: none;
+}
+
+.ingredient_box {
+  border: 1px solid black;
 }
