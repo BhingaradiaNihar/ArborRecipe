@@ -39,7 +39,7 @@ def get_recipe():
             "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient.lower()]
         ).fetchone()
         #catch if ingrridients not found
-        print(cur)
+        #print(cur)
         recipe_id_sets.append(ast.literal_eval(cur["recipe_id"]))
     
 
@@ -50,7 +50,7 @@ def get_recipe():
         recipes_id = recipes_id | set_id
 
     number = 0 
-    print(recipes_id)
+    #print(recipes_id)
     restriction_data = {
             "dairy" : ["milk", "greekyogurt", "yogurt", "sourcream", "cream", "alfredo", "mayonnaise", "mozzarella", "parmesan", "brie", "bleu", "feta", "cottage cheese", "whipping cream"],
             "egg" : ["egg", "egg white", "egg yolk"],
@@ -61,17 +61,29 @@ def get_recipe():
             }
 
     restriction_ingredients = [] if restr=="" else restriction_data[restr]
-    print("res_ing",  restriction_ingredients)
+    #print("res_ing",  restriction_ingredients)
 
     res_list = []
-    for recipe in recipes_id:
-        cur2 = connection.execute(
-            "SELECT * FROM recipe_table WHERE recipe_id = ?", [recipe]
-        ).fetchone()
-        
 
-    
-        if(find_word(cur2["ingredients"], restriction_ingredients)):
+    for recipe in recipes_id:
+
+        cur2 = connection.execute(
+             "SELECT * FROM recipe_table WHERE recipe_id = ?", [recipe]
+        ).fetchone()
+        '''
+        print(cur2)
+        print(type(cur2))
+        print(cur2.keys())
+        print("cur2[ing]", cur2['ingredients'])
+        print(restriction_ingredients)
+        break
+        '''
+
+        #print(cur2)
+        #print("cur2[ing]", cur2.get('ingredients'))
+
+        
+        if(find_word(cur2['ingredients'], restriction_ingredients)):
             continue
 
         temp = {
