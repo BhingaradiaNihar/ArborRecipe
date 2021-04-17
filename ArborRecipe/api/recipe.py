@@ -28,15 +28,14 @@ def get_recipe():
     recipes_id = set()
     recipes_text = {}
 
-    restr = request.args.get('restrictions').lower()
+    restr = request.args.get('restrictions').lower().split(',')
     print("restr" , restr)
-    #print(request.args.get('ingredients'))
-    ingredients = request.args.get('ingredients').split(",")
-    #print(ingredients)
+    ingredients = request.args.get('ingredients').lower().split(",")
+    print("ingredients", ingredients)
     connection = ArborRecipe.model.get_db()
     for ingredient in ingredients:
         cur = connection.execute(
-            "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient.lower()]
+            "SELECT recipe_id FROM ingredient_table WHERE ingredients = ?", [ingredient]
         ).fetchone()
         #catch if ingrridients not found
         #print(cur)
@@ -60,9 +59,15 @@ def get_recipe():
             "halal" : ["pork", "bacon"]
             }
 
-    restriction_ingredients = [] if restr=="" else restriction_data[restr]
+    restriction_ingredients = []
+
+
+    for r in restr:
+        if r in restriction_data:
+            restriction_ingredients.extend(restriction_data[r])
     #print("res_ing",  restriction_ingredients)
 
+    print(restriction_ingredients)
     res_list = []
 
     for recipe in recipes_id:
@@ -70,17 +75,7 @@ def get_recipe():
         cur2 = connection.execute(
              "SELECT * FROM recipe_table WHERE recipe_id = ?", [recipe]
         ).fetchone()
-        '''
-        print(cur2)
-        print(type(cur2))
-        print(cur2.keys())
-        print("cur2[ing]", cur2['ingredients'])
-        print(restriction_ingredients)
-        break
-        '''
 
-        #print(cur2)
-        #print("cur2[ing]", cur2.get('ingredients'))
 
         
         if(find_word(cur2['ingredients'], restriction_ingredients)):

@@ -69,6 +69,7 @@ class App extends React.Component {
             <Ingredients_Bar id = "ingredients_bar" key = "1" parentCallback = {this.handleCallback1} />
             <Restriction_Bar id = "restriction_bar" key = "2" parentCallback = {this.handleCallback2} />
           </div>
+          <br></br>
           <div id = "submit_reset_button">
             <button id = 'submit-button' type = "button" value ="Submit" onClick = {this.getRecipe}>Search</button>
             <button id = 'reset-button' type = "button" value ="Reset" onClick = {() => window.location.reload()}>Reset</button>
