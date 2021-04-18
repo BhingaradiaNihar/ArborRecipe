@@ -9,6 +9,10 @@
   padding: 5px;    
 }
 
+#reactEntry {
+  width: 75%;
+}
+
 html
 {
   background: url('../images/BG.jpg') no-repeat center center fixed;
