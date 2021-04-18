@@ -29,9 +29,7 @@ def get_recipe():
     recipes_text = {}
 
     restr = request.args.get('restrictions').lower().split(',')
-    print("restr" , restr)
     ingredients = request.args.get('ingredients').lower().split(",")
-    print("ingredients", ingredients)
     connection = ArborRecipe.model.get_db()
     for ingredient in ingredients:
         cur = connection.execute(
@@ -67,7 +65,6 @@ def get_recipe():
             restriction_ingredients.extend(restriction_data[r])
     #print("res_ing",  restriction_ingredients)
 
-    print(restriction_ingredients)
     res_list = []
 
     for recipe in recipes_id:
@@ -86,14 +83,17 @@ def get_recipe():
             "recipe_name" :  cur2["recipe_name"],
             "ingredients" : cur2["ingredients"],
             "instruction" :  cur2["instruction"] ,
-            "cooking_time" :  cur2["cooking_time"],
+            'cooking_time' :  cur2["cooking_time"],
             "prep_time" : cur2["prep_time"]
         }
 
         res_list.append(temp)
+        print(temp["cooking_time"])
+
     #     recipes_text[number] = temp
     #     number+=1
     # print(json.dumps(recipes_text, indent=2))
+    res_list = sorted(res_list, key = lambda  i : i["cooking_time"])
     res_dict = {'recipe': res_list}
  
     return flask.jsonify(**res_dict)
