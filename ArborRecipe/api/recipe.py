@@ -93,7 +93,7 @@ def get_recipe():
     #     recipes_text[number] = temp
     #     number+=1
     # print(json.dumps(recipes_text, indent=2))
-    res_list = sorted(res_list, key = lambda  i : i["cooking_time"])
+    res_list = sorted(res_list, key = lambda  i : (i["cooking_time"] , i["prep_time"]))
     res_dict = {'recipe': res_list}
  
     return flask.jsonify(**res_dict)
