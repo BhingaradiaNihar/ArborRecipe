@@ -38,13 +38,18 @@ def get_recipe():
         #catch if ingrridients not found
         #print(cur)
         recipe_id_sets.append(ast.literal_eval(cur["recipe_id"]))
-    
+    #print(recipe_id_sets)
 
     #print("recipe_id_sets", recipe_id_sets) 
     # find recipes 
+    i = 0 
     for set_id in recipe_id_sets:
         #print(type(set_id), type(recipes_id))
         recipes_id = recipes_id | set_id
+
+    for set_id in recipe_id_sets:
+        recipes_id = recipes_id & set_id
+
 
     number = 0 
     #print(recipes_id)
@@ -88,7 +93,7 @@ def get_recipe():
         }
 
         res_list.append(temp)
-        print(temp["cooking_time"])
+
 
     #     recipes_text[number] = temp
     #     number+=1
